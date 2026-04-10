@@ -1,0 +1,24 @@
+:root {
+
+}
+
+
+@font-face {
+    font-family: "yes";
+	src: url(fonts/AbhayaLibre-Regular.woff2)
+}
+
+body{
+    display: flex;
+    justify-content: center; /* horizontaal */
+    align-items: center;     /* verticaal */
+    height: 100vh;           /* volledige schermhoogte */
+}
+
+button {
+    border-radius: 10%;
+    background-color: aqua;
+    padding: 10px;
+    border: 5px black;
+    
+}

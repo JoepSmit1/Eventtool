@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    justify-content: center; /* horizontaal */
+    align-items: center;     /* verticaal */
+    height: 100vh;           /* volledige schermhoogte */
+    margin: 0;
+    background-color: #D5CDC6;
+}
+
+.reserve-btn {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding: 18px 60px;
+    border-radius: 12px;
+    font-size: 18px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+/* Hover effect */
+.reserve-btn:hover {
+    background-color: #222;
+    transform: scale(1.05);
+}
