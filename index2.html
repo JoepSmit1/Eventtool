@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event wizard</title>
+  <link href="styles/2.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="overlay">
+    <div class="popup">
+
+      <!-- kruisje terug naar index -->
+      <a href="index.html" class="close">&times;</a>
+
+      <div class="popup-grid">
+
+        <!-- LINKS -->
+        <div class="left">
+
+          <!-- STEP 1 -->
+          <section class="step active" data-step="1">
+            <h1>Stel uw evenement samen</h1>
+
+            <p>Bij Republiek Bloemendaal draait alles om lekker eten, goede vibes en genieten van het leven aan zee.</p>
+            <p>Of je nu komt voor een borrel of een uitgebreide diner, Republiek biedt de perfecte setting voor alle gelegenheden.</p>
+
+            <form id="wizardForm">
+              <div class="form-group">
+                <label for="eventType">Soort evenement</label>
+                <select id="eventType" required>
+                  <option value="" selected disabled>Selecteer een optie...</option>
+                  <option value="Vergadering">Vergadering</option>
+                  <option value="Ontbijt">Ontbijt</option>
+                  <option value="Lunch">Lunch</option>
+                  <option value="Diner">Diner</option>
+                  <option value="Feest">Feest</option>
+                  <option value="Bruiloft">Bruiloft</option>
+                  <option value="Borrel">Borrel</option>
+                  <option value="Teambuilding">Teambuilding</option>
+                  <option value="Fotoshoot">Fotoshoot</option>
+                  <option value="Uitvaart">Uitvaart</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="gasten">Aantal gasten</label>
+                  <input type="number" id="gasten" name="gasten" min="1" step="1" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="Datum">Datum (optioneel)</label>
+                  <input type="date" id="Datum">
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <!-- STEP 2 -->
+          <section class="step" data-step="2">
+            <h1>Welke ruimte heeft uw voorkeur?</h1>
+            <p>Kies waar je event plaatsvindt.</p>
+
+            <div class="room-grid">
+
+              <article class="room-card" data-room="Restaurant">
+                <img class="room-img" src="images/restaurant.jpg" alt="Restaurant">
+                <h3 class="room-title">Restaurant</h3>
+                <div class="room-capacity">Tot 500 personen</div>
+                <p class="room-text">
+                    Een licht en elegant restaurant met grote ramen en uitzicht op zee. De warme materialen en rustige setting zorgen voor een ontspannen sfeer waarin je uitgebreid kunt genieten.
+                </p>
+
+                <button type="button" class="room-btn" data-select-room="Restaurant">
+                  Kies ruimte
+                </button>
+              </article>
+
+              <article class="room-card" data-room="Zuid">
+                <img class="room-img" src="images/zuid.jpg" alt="Zuid">
+                <h3 class="room-title">Zuid</h3>
+                <div class="room-capacity">Tot 80 personen</div>
+                <p class="room-text">
+                    Zuid is een stijlvolle en uitnodigende plek met een warme, mediterrane uitstraling. Een ontspannen sfeer waar goed eten, drinken en samenzijn centraal staan.
+                </p>
+
+                <button type="button" class="room-btn" data-select-room="Zuid">
+                    Kies ruimte
+                  </button>
+              </article>
+
+            </div>
+
+            <!-- verborgen radios voor validatie -->
+            <input type="radio" name="ruimte" id="roomRestaurant" value="Restaurant" hidden>
+            <input type="radio" name="ruimte" id="roomZuid" value="Zuid" hidden>
+          </section>
+
+          <!-- STEP 3 (leeg) -->
+          <section class="step" data-step="3">
+            <h1>Stel uw evenement samen</h1>
+            <p>Voeg de items toe die jouw event nodig heeft!</p>
+          
+            <div class="items-wrap">
+              <div class="items-header">
+                <div class="items-time">09:00 - 12:00</div>
+                <div class="items-title">Maak je event compleet</div>
+              </div>
+          
+              <div class="items-list" id="itemsList">
+                <!-- Item 1 -->
+                <div class="item-row" data-item="piatti-ontbijt">
+                  <div class="item-left">
+                    <div class="item-name">Standaard ontbijt</div>
+                    <div class="item-price">€ 13,30 p.p.</div>
+                  </div>
+                  <button type="button" class="item-btn" data-action="add" data-item="Standaard">+</button>
+                </div>
+          
+                <!-- Item 2 -->
+                <div class="item-row" data-item="piatti-luxe">
+                  <div class="item-left">
+                    <div class="item-name">Republiek ontbijt</div>
+                    <div class="item-price">€ 20,64 p.p.</div>
+                  </div>
+                  <button type="button" class="item-btn" data-action="add" data-item="Republiek-luxe">+</button>
+                </div>
+          
+                <!-- Item 3 -->
+                <div class="item-row" data-item="koffie-thee">
+                  <div class="item-left">
+                    <div class="item-name">Koffie / thee + Sweets</div>
+                    <div class="item-price">€ 8,72 p.p.</div>
+                  </div>
+                  <button type="button" class="item-btn" data-action="add" data-item="koffie-thee">+</button>
+                </div>
+          
+                <!-- Item 4 -->
+                <div class="item-row" data-item="juice-healthy">
+                  <div class="item-left">
+                    <div class="item-name">Juice of the day + Healthy bite</div>
+                    <div class="item-price">€ 8,72 p.p.</div>
+                  </div>
+                  <button type="button" class="item-btn" data-action="add" data-item="juice-healthy">+</button>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+
+          <!-- STEP 4: Contactgegevens -->
+          <section class="step" data-step="4">
+            <h1>Contactgegevens</h1>
+            <p>Vul het formulier in, zodat wij meer over jou en jouw behoeften te weten kunnen komen.</p>
+
+            <form id="contactForm" class="contact-form">
+
+              <div class="form-row-grid two">
+                <input type="text" id="eventNaam" placeholder="Naam evenement">
+                <input type="text" id="groepsnaam" placeholder="Groepsnaam (optioneel)">
+              </div>
+
+              <h2 class="section-title">Contactgegevens</h2>
+
+              <div class="form-row-grid one">
+                <input type="text" id="bedrijf" placeholder="Bedrijfsnaam (optioneel)">
+              </div>
+
+              <div class="form-row-grid two">
+                <input type="text" id="voornaam" placeholder="Voornaam">
+                <input type="text" id="achternaam" placeholder="Achternaam">
+              </div>
+
+              <div class="form-row-grid one">
+                <input type="email" id="email" placeholder="E-mailadres">
+              </div>
+
+              <div class="form-row-grid one">
+                <input type="tel" id="telefoon" placeholder="Telefoonnummer (optioneel)">
+              </div>
+
+              <h2 class="section-title">Adresgegevens</h2>
+
+              <div class="form-row-grid one">
+                <input type="text" id="straat" placeholder="Straatnaam + huisnummer (optioneel)">
+              </div>
+
+              <div class="form-row-grid two">
+                <input type="text" id="postcode" placeholder="Postcode (optioneel)">
+                <input type="text" id="plaats" placeholder="Plaats (optioneel)">
+              </div>
+
+              <h2 class="section-title">Aanvullende informatie</h2>
+              <p class="helper-text">Als u extra wensen heeft, dan kunt u dat hieronder aangeven.</p>
+
+              <label class="textarea-label" for="wensen">Speciale wensen en/of belangrijke informatie (optioneel)</label>
+              <textarea id="wensen" rows="4"></textarea>
+
+              <label class="check-row">
+                <input type="checkbox" id="akkoord">
+                <span>Ik ga akkoord met de <a href="#" class="link">algemene voorwaarden</a></span>
+              </label>
+
+              <div class="cta-row">
+                <button type="button" class="btn-secondary" id="backToStep2">← Terug</button>
+                <button type="button" class="btn-primary" id="offerBtn" disabled>Offerte aanvragen</button>
+              </div>
+
+              <p class="small-note">Deze aanvraag resulteert in een vrijblijvende offerte. Wij nemen zo spoedig mogelijk contact met u op.</p>
+
+            </form>
+          </section>
+
+          <!-- STEP 5 (leeg) -->
+          <section class="step" data-step="5">
+            <h1>Bedankt voor het aanvragen van een offerte</h1>
+          
+            <p>
+              Bedankt voor het aanvragen van een offerte bij Republiek Bloemendaal.<br>
+              We hebben je aanvraag goed ontvangen.
+            </p>
+          
+            <p>
+              Ons team neemt zo snel mogelijk contact met je op om de details te bespreken
+              en je verder te helpen.
+            </p>
+          
+            <p><strong>Tot snel bij Republiek Bloemendaal 🌊</strong></p>
+          </section>
+
+          <!-- NAV onderin -->
+          <div class="wizard-footer">
+            <div class="step-indicator" id="stepIndicator">Stap 1 / 5</div>
+
+            <div class="nav-buttons">
+              <button type="button" class="nav-btn" id="prevBtn" disabled>←</button>
+              <button type="button" class="nav-btn primary" id="nextBtn" disabled>Volgende →</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RECHTS: SAMENVATTING -->
+        <aside class="right">
+            <div class="summary">
+                <div class="summary-title">Samenvatting</div>
+                <hr>
+              
+                <div class="summary-event" id="sumEvent">—</div>
+                <div class="summary-row" id="sumGuests">—</div>
+                <div class="summary-row" id="sumDate">—</div>
+                <div class="summary-row" id="sumRoom">—</div>
+
+                <hr class="sum-divider">
+
+                <div class="sum-items" id="sumItems"></div>
+
+                <div class="sum-total">
+                <span>Totaal excl. BTW</span>
+                <strong id="sumTotal">€ 0,00</strong>
+            </div>
+
+              
+                <!-- logo container -->
+                <div class="summary-logo-box">
+                  <img src="images/replogo.png" alt="Republiek Bloemendaal logo">
+                </div>
+              </div>
+          </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>
